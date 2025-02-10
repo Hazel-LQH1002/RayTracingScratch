@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\visual studio\\RayTracing\\RayTracing\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8F576C35-B20A-4E29-85EC-06238F8BADB4}|RayTracing\\RayTracing.vcxproj|F:\\visual studio\\RayTracing\\RayTracing\\RayTracing\\RayTracing.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8F576C35-B20A-4E29-85EC-06238F8BADB4}|RayTracing\\RayTracing.vcxproj|solutionrelative:RayTracing\\RayTracing.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F576C35-B20A-4E29-85EC-06238F8BADB4}|RayTracing\\RayTracing.vcxproj|F:\\VISUAL STUDIO\\RAYTRACING\\RAYTRACING\\VEC3.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8F576C35-B20A-4E29-85EC-06238F8BADB4}|RayTracing\\RayTracing.vcxproj|solutionrelative:VEC3.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F576C35-B20A-4E29-85EC-06238F8BADB4}|RayTracing\\RayTracing.vcxproj|F:\\VISUAL STUDIO\\RAYTRACING\\RAYTRACING\\RAY.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8F576C35-B20A-4E29-85EC-06238F8BADB4}|RayTracing\\RayTracing.vcxproj|solutionrelative:RAY.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ray.h",
+              "DocumentMoniker": "F:\\visual studio\\RayTracing\\RayTracing\\ray.h",
+              "RelativeDocumentMoniker": "ray.h",
+              "ToolTip": "F:\\visual studio\\RayTracing\\RayTracing\\ray.h",
+              "RelativeToolTip": "ray.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-02-10T22:54:20.313Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "vec3.h",
+              "DocumentMoniker": "F:\\visual studio\\RayTracing\\RayTracing\\vec3.h",
+              "RelativeDocumentMoniker": "vec3.h",
+              "ToolTip": "F:\\visual studio\\RayTracing\\RayTracing\\vec3.h",
+              "RelativeToolTip": "vec3.h",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAAAD0AAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-02-10T22:50:23.819Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RayTracing.cpp",
+              "DocumentMoniker": "F:\\visual studio\\RayTracing\\RayTracing\\RayTracing\\RayTracing.cpp",
+              "RelativeDocumentMoniker": "RayTracing\\RayTracing.cpp",
+              "ToolTip": "F:\\visual studio\\RayTracing\\RayTracing\\RayTracing\\RayTracing.cpp",
+              "RelativeToolTip": "RayTracing\\RayTracing.cpp",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-02-10T22:50:08.252Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
