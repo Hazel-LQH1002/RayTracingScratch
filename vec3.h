@@ -21,7 +21,7 @@ public:
 	double operator[](int i) const { return e[i]; }
 
 
-	vec3& operator+=(vec3& other)
+	vec3& operator+=(const vec3& other)
 	{
 		e[0] += other.e[0];
 		e[1] += other.e[1];
@@ -30,7 +30,7 @@ public:
 		return *this;
 	}
 
-	vec3& operator*=(vec3& other)
+	vec3& operator*=(const vec3& other)
 	{
 		e[0] *= other.e[0];
 		e[1] *= other.e[1];
