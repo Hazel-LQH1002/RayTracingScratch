@@ -3,13 +3,18 @@
 #define SPHERE_H
 #include "hittable.h"
 
+inline bool isInRange(const double& testNum, const double& min, const double& max)
+{
+    return (testNum > min && testNum < max);
+}
+
 class sphere : public hittable
 {
 public:
 
-	sphere(point3& centre, double radius):centre(centre),radius(std::fmax(0,radius)){}
+	sphere(const point3& centre, double radius):centre(centre),radius(std::fmax(0,radius)){}
 
-	bool hit(const ray& r, double ray_tmin, double ray_tmax, hit_record& rec) const override
+	bool hit(const ray& r, interval ray_t, hit_record& rec) const override
 	{
         vec3 CQ = centre - r.origin();
         double a = r.direction().length_sqr();
@@ -25,10 +30,10 @@ public:
         else
         {
             double root = (-b - std::sqrt(determ)) / (2 * a);
-            if (!isInRange(root,ray_tmin,ray_tmax))
+            if (!ray_t.surrounds(root))
             {
                 root = (-b + std::sqrt(determ)) / (2 * a);
-                if (!isInRange(root, ray_tmin, ray_tmax))
+                if (!ray_t.surrounds(root))
                     return false;
             }
             rec.t = root;
@@ -44,8 +49,5 @@ private:
     point3 centre;
 };
 
-inline bool isInRange(const double& testNum, const double& min, const double& max)
-{
-    return (testNum > min && testNum < max);
-}
+
 #endif
