@@ -8,7 +8,8 @@ public:
 
     double aspect_ratio = 1.0;
     int image_width = 100;
-    int samples_per_pixel = 10;
+    int samples_per_pixel = 10; 
+    int max_depth = 10; // Maximum number of ray bounces
 
     void render(const hittable& world)
     {
@@ -25,7 +26,7 @@ public:
                 for (int k = 0; k < samples_per_pixel; k++)
                 {
                     ray sub_r = get_ray(i, j);
-                    pixel_color += ray_color(sub_r, world);
+                    pixel_color += ray_color(sub_r, max_depth, world);
                 }
                 write_color(std::cout, pixel_color * pixel_samples_scale);
 
@@ -84,12 +85,17 @@ private:
         return vec3(random_double() - 0.5, random_double() - 0.5, 0);
     }
 
-    color ray_color(const ray& r, const hittable& world)
+    color ray_color(const ray& r, int depth, const hittable& world)
     {
+        if (depth < 0)
+            return color(0,0,0);
+
         hit_record rec;
-        if (world.hit(r, interval(0, infinity), rec))
+        if (world.hit(r, interval(0.001, infinity), rec)) //shadow acne
         {
-            return 0.5 * (rec.normal + color(1, 1, 1));
+            //vec3 bounceDir = random_unit_vector_on_hemisphere(rec.normal);
+            vec3 bounceDir = rec.normal + random_unit_vector();
+            return 0.5 * ray_color(ray(rec.p, bounceDir), depth-1, world);
         }
 
         vec3 unit_direction = unit_vector(r.direction());

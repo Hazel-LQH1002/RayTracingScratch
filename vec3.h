@@ -68,6 +68,16 @@ public:
 		double length_square = lenSqr(vec);
 		return std::sqrt(length_square);
 	}
+
+	static vec3 random()
+	{
+		return vec3(random_double(), random_double(), random_double());
+	}
+
+	static vec3 random(double min, double max)
+	{
+		return vec3(random_double(min,max), random_double(min, max), random_double(min, max));
+	}
 };
 
 using point3 = vec3;
@@ -123,5 +133,24 @@ inline vec3 cross(const vec3& v1, const vec3& v2)
 inline vec3 unit_vector(const vec3& v)
 {
 	return v / v.length();
+}
+
+inline vec3 random_unit_vector()
+{
+	while (true)
+	{
+		vec3 p = vec3::random(-1, 1);
+		double lenSqr = p.length_sqr();
+		if (lenSqr <= 1 && lenSqr > 1e-160)
+		{
+			return unit_vector(p);
+		}
+	}
+}
+
+inline vec3 random_unit_vector_on_hemisphere(const vec3& normal)
+{
+	vec3 p = random_unit_vector();
+	return dot(p, normal) > 0.0 ? p : -p;
 }
 #endif // !VEC3_H
