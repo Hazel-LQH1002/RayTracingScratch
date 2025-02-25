@@ -59,12 +59,30 @@ public:
 		attenuation = color(1.0, 1.0, 1.0);
 		double eta_ratio = rec.frontFace ? 1.0 / refraction_index : refraction_index;
 		vec3 unit_vector_of_incomeRay = unit_vector(ray_in.direction());
-		scattered = ray(rec.p, refract(unit_vector_of_incomeRay, rec.normal, eta_ratio));
+
+		double cos_theta = std::fmin(dot(-unit_vector_of_incomeRay, rec.normal), 1.0);
+		double sin_theta = std::sqrt(1.0 - cos_theta * cos_theta);
+
+		vec3 next_ray_direction;
+		bool cannot_refract = eta_ratio * sin_theta > 1.0;
+		if (cannot_refract || reflectance(cos_theta, eta_ratio) > random_double())
+			next_ray_direction = reflect(unit_vector_of_incomeRay, rec.normal);
+		else
+			next_ray_direction = refract(unit_vector_of_incomeRay, rec.normal, eta_ratio);
+
+		scattered = ray(rec.p, next_ray_direction);
 		return true;
 	}
 
 private:
 	double refraction_index;
 
+	// Use Schlick's approximation for reflectance
+	static double reflectance(double cosine, double refraction_index)
+	{
+		auto r0 = (1 - refraction_index) / (1 + refraction_index);
+		r0 = r0 * r0;
+		return r0 + (1 - r0) * std::pow((1 - cosine), 5); 
+	}
 };
 #endif
