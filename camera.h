@@ -11,6 +11,11 @@ public:
     int samples_per_pixel = 10; 
     int max_depth = 10; // Maximum number of ray bounces
 
+    double vfov = 90;
+    vec3 lookFrom = point3(0, 0, 0);
+    vec3 lookTo = point3(0, 0, -1);
+    vec3 upAxis = vec3(0, 1, 0);
+
     void render(const hittable& world)
     {
         initialize();
@@ -42,6 +47,8 @@ private:
     vec3 pixel_delta_v;
     double pixel_samples_scale;
 
+    vec3 u, v, w;
+
     void initialize()
     {
         // Image
@@ -49,23 +56,27 @@ private:
         image_height = image_height < 1 ? 1 : image_height;
 
         // Camera Center
-        center = point3(0, 0, 0);
+        center = lookFrom;
+
+        w = unit_vector(lookFrom - lookTo);
+        u = unit_vector(cross(upAxis, w));
+        v = unit_vector(cross(w, u));
 
         // Viewport
-        auto viewport_height = 2.0;
+        auto focal_length = (lookFrom - lookTo).length();
+        auto viewport_height = 2.0 * focal_length * std::tan(degrees_to_radians(vfov)/2.0);
         auto viewport_width = viewport_height * (double(image_width) / image_height);
-        auto focal_length = 1.0;
 
         // Vectors across the horizontal and vertical edges
-        auto viewport_u = vec3(viewport_width, 0, 0);
-        auto viewport_v = vec3(0, -viewport_height, 0);
+        auto viewport_u = viewport_width * u;
+        auto viewport_v = -viewport_height * v;
 
         // Pixel space i.e delta vector from pixel to pixel
         pixel_delta_u = viewport_u / image_width;
         pixel_delta_v = viewport_v / image_height;
 
         // Location of upper left pixel
-        auto viewport_upper_left = center - vec3(0, 0, focal_length) - viewport_u / 2 - viewport_v / 2;
+        auto viewport_upper_left = center - focal_length * w - viewport_u / 2 - viewport_v / 2;
         pixel00_loc = viewport_upper_left + 0.5 * (pixel_delta_u + pixel_delta_v);
         pixel_samples_scale = 1.0 / samples_per_pixel;
 

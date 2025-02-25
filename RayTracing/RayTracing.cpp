@@ -39,6 +39,10 @@ int main()
     cam.image_width = 400;
     cam.samples_per_pixel = 100;
     cam.max_depth = 50;
+    cam.vfov = 20;
+    cam.lookFrom = point3(-2, 2, 1);
+    cam.lookTo = point3(0, 0, -1);
+    cam.upAxis = vec3(0, 1, 0);
 
     cam.render(world);
 }
