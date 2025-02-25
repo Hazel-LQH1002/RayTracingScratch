@@ -16,7 +16,7 @@ public:
 	double y() const { return e[1]; }
 	double z() const { return e[2]; }
 
-	vec3 operator-() { return vec3(-e[0], -e[1], -e[2]); }
+	vec3 operator-() const { return vec3(-e[0], -e[1], -e[2]); }
 	double& operator[](int i) { return e[i]; }
 	double operator[](int i) const { return e[i]; }
 
@@ -163,5 +163,13 @@ inline vec3 random_unit_vector_on_hemisphere(const vec3& normal)
 inline vec3 reflect(const vec3& v, const vec3& n)
 {
 	return v - 2 * dot(v, n) * n;
+}
+
+inline vec3 refract(const vec3& income_dir, const vec3& n, double eta_over_etai)
+{
+	double cos_theta = std::fmin(dot(-income_dir, n),1.0);
+	vec3 r_perpendicular = eta_over_etai * (income_dir + cos_theta * n);
+	vec3 r_parallel = -std::sqrt(std::fabs(1.0 - r_perpendicular.length_sqr())) * n;
+	return r_perpendicular + r_parallel;
 }
 #endif // !VEC3_H

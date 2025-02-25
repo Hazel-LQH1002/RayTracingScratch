@@ -11,10 +11,6 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:camera.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{63240330-2660-41E9-A657-B16BDC6C303A}|C:\\Users\\Hazel\\AppData\\Roaming\\Microsoft\\VisualStudio\\17.0_1909b6c9\\SingleFileISense\\_sfi_71e2888c-e59a-4547-bde9-a6b52f415492_.vcxproj|F:\\VISUAL STUDIO\\RAYTRACING\\RAYTRACING\\HITTABLE.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{63240330-2660-41E9-A657-B16BDC6C303A}|C:\\Users\\Hazel\\AppData\\Roaming\\Microsoft\\VisualStudio\\17.0_1909b6c9\\SingleFileISense\\_sfi_71e2888c-e59a-4547-bde9-a6b52f415492_.vcxproj|solutionrelative:HITTABLE.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\visual studio\\RayTracing\\RayTracing\\sphere.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sphere.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -44,6 +40,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\visual studio\\RayTracing\\RayTracing\\interval.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:interval.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\visual studio\\RayTracing\\RayTracing\\hittable.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:hittable.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -57,7 +57,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "hittable_list.h",
               "DocumentMoniker": "F:\\visual studio\\RayTracing\\RayTracing\\hittable_list.h",
               "RelativeDocumentMoniker": "hittable_list.h",
@@ -65,8 +65,7 @@
               "RelativeToolTip": "hittable_list.h",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-02-18T22:59:54.423Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-18T22:59:54.423Z"
             },
             {
               "$type": "Document",
@@ -78,12 +77,11 @@
               "RelativeToolTip": "camera.h",
               "ViewState": "AgIAAF8AAAAAAAAAAAAuwFYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-02-17T20:42:28.657Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-17T20:42:28.657Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 9,
               "Title": "interval.h",
               "DocumentMoniker": "F:\\visual studio\\RayTracing\\RayTracing\\interval.h",
               "RelativeDocumentMoniker": "interval.h",
@@ -95,7 +93,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 7,
               "Title": "rtHeader.h",
               "DocumentMoniker": "F:\\visual studio\\RayTracing\\RayTracing\\rtHeader.h",
               "RelativeDocumentMoniker": "rtHeader.h",
@@ -103,12 +101,11 @@
               "RelativeToolTip": "rtHeader.h",
               "ViewState": "AgIAAAsAAAAAAAAAAAAAACQAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-02-17T19:19:13.649Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-17T19:19:13.649Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "color.h",
               "DocumentMoniker": "F:\\visual studio\\RayTracing\\RayTracing\\color.h",
               "RelativeDocumentMoniker": "color.h",
@@ -116,12 +113,11 @@
               "RelativeToolTip": "color.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-02-17T19:08:28.781Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-17T19:08:28.781Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 8,
               "Title": "xutility",
               "DocumentMoniker": "F:\\visual studio\\2022\\Community\\VC\\Tools\\MSVC\\14.42.34433\\include\\xutility",
               "RelativeDocumentMoniker": "..\\..\\2022\\Community\\VC\\Tools\\MSVC\\14.42.34433\\include\\xutility",
@@ -133,7 +129,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "sphere.h",
               "DocumentMoniker": "F:\\visual studio\\RayTracing\\RayTracing\\sphere.h",
               "RelativeDocumentMoniker": "sphere.h",
@@ -141,12 +137,11 @@
               "RelativeToolTip": "sphere.h",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABAAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-02-17T00:37:58.074Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-17T00:37:58.074Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "ray.h",
               "DocumentMoniker": "F:\\visual studio\\RayTracing\\RayTracing\\ray.h",
               "RelativeDocumentMoniker": "ray.h",
@@ -154,12 +149,11 @@
               "RelativeToolTip": "ray.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-02-10T22:54:20.313Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-10T22:54:20.313Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "vec3.h",
               "DocumentMoniker": "F:\\visual studio\\RayTracing\\RayTracing\\vec3.h",
               "RelativeDocumentMoniker": "vec3.h",
@@ -167,8 +161,7 @@
               "RelativeToolTip": "vec3.h",
               "ViewState": "AgIAAI0AAAAAAAAAAAAAAKQAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-02-10T22:50:23.819Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-10T22:50:23.819Z"
             },
             {
               "$type": "Document",
@@ -178,14 +171,14 @@
               "RelativeDocumentMoniker": "RayTracing\\RayTracing.cpp",
               "ToolTip": "F:\\visual studio\\RayTracing\\RayTracing\\RayTracing\\RayTracing.cpp",
               "RelativeToolTip": "RayTracing\\RayTracing.cpp",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABUAAABJAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABUAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-02-10T22:50:08.252Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 10,
               "Title": "hittable.h",
               "DocumentMoniker": "F:\\visual studio\\RayTracing\\RayTracing\\hittable.h",
               "RelativeDocumentMoniker": "hittable.h",
@@ -193,8 +186,7 @@
               "RelativeToolTip": "hittable.h",
               "ViewState": "AgIAAA8AAAAAAAAAAAAAABsAAABLAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-02-17T00:04:58.589Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-17T00:04:58.589Z"
             }
           ]
         }
