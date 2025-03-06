@@ -16,6 +16,9 @@ public:
     vec3 lookTo = point3(0, 0, -1);
     vec3 upAxis = vec3(0, 1, 0);
 
+    double defocus_angle = 0;  // Variation angle of rays through each pixel
+    double focus_dist = 10;    // Distance from camera lookfrom point to plane of perfect focus
+
     void render(const hittable& world)
     {
         initialize();
@@ -46,6 +49,8 @@ private:
     vec3 pixel_delta_u;
     vec3 pixel_delta_v;
     double pixel_samples_scale;
+    vec3 defocus_disk_u;
+    vec3 defocus_disk_v;
 
     vec3 u, v, w;
 
@@ -58,27 +63,32 @@ private:
         // Camera Center
         center = lookFrom;
 
+        // Viewport
+        auto theta = degrees_to_radians(vfov);
+        auto h = std::tan(theta / 2);
+        auto viewport_height = 2 * h * focus_dist;
+        auto viewport_width = viewport_height * (double(image_width) / image_height);
+
         w = unit_vector(lookFrom - lookTo);
         u = unit_vector(cross(upAxis, w));
         v = unit_vector(cross(w, u));
 
-        // Viewport
-        auto focal_length = (lookFrom - lookTo).length();
-        auto viewport_height = 2.0 * focal_length * std::tan(degrees_to_radians(vfov)/2.0);
-        auto viewport_width = viewport_height * (double(image_width) / image_height);
-
         // Vectors across the horizontal and vertical edges
         auto viewport_u = viewport_width * u;
-        auto viewport_v = -viewport_height * v;
+        auto viewport_v = viewport_height * -v;
 
         // Pixel space i.e delta vector from pixel to pixel
         pixel_delta_u = viewport_u / image_width;
         pixel_delta_v = viewport_v / image_height;
 
         // Location of upper left pixel
-        auto viewport_upper_left = center - focal_length * w - viewport_u / 2 - viewport_v / 2;
+        auto viewport_upper_left = center - focus_dist * w - viewport_u / 2 - viewport_v / 2;
         pixel00_loc = viewport_upper_left + 0.5 * (pixel_delta_u + pixel_delta_v);
         pixel_samples_scale = 1.0 / samples_per_pixel;
+
+        double defocus_radius = focus_dist * std::tan(degrees_to_radians(defocus_angle / 2));
+        defocus_disk_u = defocus_radius * u;
+        defocus_disk_v = defocus_radius * v;
 
     }
 
@@ -86,14 +96,20 @@ private:
     {
         auto offset = sample_square();
         auto pixel_sample = pixel00_loc + ((i + offset.x())) * pixel_delta_u + ((j + offset.y())) * pixel_delta_v;
-        vec3 ray_direction = pixel_sample - center;
-        point3 ray_origin = center;
+        point3 ray_origin = (defocus_angle <= 0) ? center : defocus_disk_sample();
+        vec3 ray_direction = pixel_sample - ray_origin;
         return ray(ray_origin, ray_direction);
     }
 
     vec3 sample_square() const
     {
         return vec3(random_double() - 0.5, random_double() - 0.5, 0);
+    }
+
+    point3 defocus_disk_sample() const
+    {
+        vec3 p = random_in_unit_disk();
+        return center + (p[0] * defocus_disk_u) + (p[1] * defocus_disk_v);
     }
 
     color ray_color(const ray& r, int depth, const hittable& world)
