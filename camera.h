@@ -98,7 +98,9 @@ private:
         auto pixel_sample = pixel00_loc + ((i + offset.x())) * pixel_delta_u + ((j + offset.y())) * pixel_delta_v;
         point3 ray_origin = (defocus_angle <= 0) ? center : defocus_disk_sample();
         vec3 ray_direction = pixel_sample - ray_origin;
-        return ray(ray_origin, ray_direction);
+        auto ray_time = random_double();
+
+        return ray(ray_origin, ray_direction, ray_time);
     }
 
     vec3 sample_square() const

@@ -21,7 +21,7 @@ public:
 	{
 		auto scatter_direction = rec.normal + random_unit_vector();
 		scatter_direction = scatter_direction.near_zero() ? rec.normal : scatter_direction;
-		scattered = ray(rec.p, scatter_direction);
+		scattered = ray(rec.p, scatter_direction, ray_in.time());
 		attenuation = albedo;
 		return true;
 	}
@@ -39,7 +39,7 @@ public:
 	{
 		auto reflect_direction = reflect(ray_in.direction(), rec.normal);
 		reflect_direction = unit_vector(reflect_direction) + fuzz * random_unit_vector();
-		scattered = ray(rec.p, reflect_direction);
+		scattered = ray(rec.p, reflect_direction, ray_in.time());
 		attenuation = albedo;
 		return true;
 	}
@@ -70,7 +70,7 @@ public:
 		else
 			next_ray_direction = refract(unit_vector_of_incomeRay, rec.normal, eta_ratio);
 
-		scattered = ray(rec.p, next_ray_direction);
+		scattered = ray(rec.p, next_ray_direction, ray_in.time());
 		return true;
 	}
 
