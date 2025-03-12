@@ -11,9 +11,21 @@ inline bool isInRange(const double& testNum, const double& min, const double& ma
 class sphere : public hittable
 {
 public:
-
-	sphere(const point3& static_centre, double radius, shared_ptr<material> mat):centre(static_centre, vec3(0,0,0)),radius(std::fmax(0,radius)), mat(mat){}
-	sphere(const point3& moving_centre1, const point3& moving_centre2, double radius, shared_ptr<material> mat):centre(moving_centre1,moving_centre2 - moving_centre1),radius(std::fmax(0,radius)), mat(mat){}
+    //stationary sphere
+	sphere(const point3& static_centre, double radius, shared_ptr<material> mat):centre(static_centre, vec3(0,0,0)),radius(std::fmax(0,radius)), mat(mat)
+    {
+        auto radius_vec = vec3(radius, radius, radius);
+        bbox = aabb(static_centre - radius_vec, static_centre + radius_vec);
+    }
+	
+    //moving sphere
+    sphere(const point3& moving_centre1, const point3& moving_centre2, double radius, shared_ptr<material> mat):centre(moving_centre1,moving_centre2 - moving_centre1),radius(std::fmax(0,radius)), mat(mat)
+    {
+        auto radius_vec = vec3(radius, radius, radius);
+        aabb box1 = aabb(moving_centre1 - radius_vec, moving_centre1 + radius_vec);
+        aabb box2 = aabb(moving_centre2 - radius_vec, moving_centre2 + radius_vec);
+        bbox = aabb(box1, box2);
+    }
 
 	bool hit(const ray& r, interval ray_t, hit_record& rec) const override
 	{
@@ -47,10 +59,13 @@ public:
         }
 	}
 
+    aabb bounding_box() const override { return bbox; }
+
 private:
     double radius;
     ray centre;
     shared_ptr<material> mat;
+    aabb bbox;
 };
 
 
