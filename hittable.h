@@ -12,6 +12,8 @@ public:
 	double t;
 	shared_ptr<material> mat;
 	vec3 normal;
+	double u;
+	double v;
 	bool frontFace;
 
 	void setFrontFace(const ray& r, vec3& outward_normal)
