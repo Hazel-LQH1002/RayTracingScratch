@@ -54,6 +54,7 @@ public:
             rec.p = r.at(root);
             vec3 outwardNormal = unit_vector(rec.p - current_centre);
             rec.setFrontFace(r, outwardNormal);
+            get_sphere_uv(outwardNormal, rec.u, rec.v);
             rec.mat = mat;
             return true;
         }
@@ -66,6 +67,15 @@ private:
     ray centre;
     shared_ptr<material> mat;
     aabb bbox;
+
+    static void get_sphere_uv(const point3& p, double& u, double& v)
+    {
+        auto theta = std::acos(-p.y());
+        auto phi = std::atan2(-p.z(), p.x()) + pi;
+
+        u = phi / (2 * pi);
+        v = theta / pi;
+    }
 };
 
 

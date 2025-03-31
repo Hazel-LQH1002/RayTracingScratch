@@ -1,7 +1,7 @@
 #pragma once
 #ifndef TEXTURE_H
 #define TEXTURE_H
-
+#include "rtw_stb_image.h"
 class texture
 {
 public:
@@ -37,6 +37,25 @@ private:
 	shared_ptr<texture> odd;
 	shared_ptr<texture> even;
 	double inv_scale;
+};
+
+class image_texture : public texture
+{
+public:
+	image_texture(const char* filename) : image(filename){}
+
+	color value(double u, double v, const point3& p) const override
+	{
+		if (image.height() <= 0) return color(0, 1, 1);
+		int x = interval(0, 1).clamp(u) * image.width();
+		int y = (1.0 - interval(0, 1).clamp(v)) * image.height(); 
+		const unsigned char* pix_Color = image.pixel_data(x,y);
+		double color_scale = 1.0 / 255.0;
+		return color(pix_Color[0] * color_scale, pix_Color[1] * color_scale, pix_Color[2] * color_scale);
+
+	}
+private:
+	rtw_image image;
 };
 
 #endif // !TEXTURE_H
