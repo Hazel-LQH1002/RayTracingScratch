@@ -2,6 +2,7 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 #include "material.h"
+#include "external/omp.h"
 class camera
 {
 public:
@@ -26,6 +27,7 @@ public:
 
         std::cout << "P3\n" << image_width << ' ' << image_height << "\n255\n";
 
+        #pragma omp parallel for num_threads(4) collapse(2)
         for (int j = 0; j < image_height; j++)
         {
             for (int i = 0; i < image_width; i++)
